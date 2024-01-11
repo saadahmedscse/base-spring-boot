@@ -2,13 +2,18 @@ plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.9.20'
     id 'io.spring.dependency-management' version '1.1.4'
+    id 'maven-publish'
 }
 
 group = 'com.saadahmedev.base'
-version = '1.0-SNAPSHOT'
+version = '0.0.1'
+def artifactVersion = version
 
 java {
     sourceCompatibility = '17'
+
+    withJavadocJar()
+    withSourcesJar()
 }
 
 configurations {
@@ -39,4 +44,54 @@ dependencies {
 
 kotlin {
     jvmToolchain(17)
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.saadahmedev.base'
+            artifactId = 'base-boot'
+            version = artifactVersion
+
+            artifact(kotlinSourcesJar)
+            artifact("build/libs/base-boot-${artifactVersion}.jar")
+
+            pom {
+                name = 'Base Spring Boot'
+                description = 'Base Spring Boot service is created to simplify code base and gives a lot of boilerplate codes'
+                url = 'https://github.com/saadahmedscse/base-spring-boot'
+
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'saadahmedscse'
+                        name = 'Saad Ahmed'
+                        email = 'saadahmedscse@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/saadahmedscse/base-spring-boot.git'
+                    developerConnection = 'scm:git:ssh://github.com:saadahmedscse/base-spring-boot.git'
+                    url = 'https://github.com/saadahmedscse/base-spring-boot'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            def releaseUrl = "https://s01.oss.sonatype.org/content/repositories/releases/"
+            def snapshotUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            url = artifactVersion.endsWith('SNAPSHOT') ? snapshotUrl : releaseUrl
+            credentials {
+                username = "username"
+                password = "password"
+            }
+        }
+    }
 }
