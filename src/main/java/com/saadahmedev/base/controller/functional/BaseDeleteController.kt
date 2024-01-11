@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable
 
 @FunctionalInterface
-interface BaseDeleteController<ID> {
+interface BaseDeleteController<I> {
 
     @Nonnull
     @DeleteMapping("{id}")
-    fun delete(@PathVariable("id") id: ID): ResponseEntity<*>
+    fun delete(@PathVariable("id") id: I): ResponseEntity<*>
 }

@@ -5,8 +5,8 @@ import jakarta.annotation.Nullable
 import kotlin.jvm.Throws
 
 @FunctionalInterface
-interface CreateRequestValidator<DTO> {
+interface CreateRequestValidator<D> {
 
     @Throws(ApiException::class)
-    fun validateCreateRequest(@Nullable body: DTO)
+    fun validateCreateRequest(@Nullable body: D)
 }

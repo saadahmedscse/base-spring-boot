@@ -4,5 +4,5 @@ import com.saadahmedev.base.controller.functional.*
 import com.saadahmedev.base.exception.thrower.ExceptionThrower
 import jakarta.servlet.http.HttpServletRequest
 
-abstract class BaseController<ID, DTO> : ExceptionThrower(), BaseCreateController<DTO>, BaseUpdateController<ID, DTO>,
-    BaseFindController<ID>, BaseFindAllController, BaseDeleteController<ID>
+abstract class BaseController<I, D> : ExceptionThrower(), BaseCreateController<D>, BaseUpdateController<I, D>,
+    BaseFindController<I>, BaseFindAllController, BaseDeleteController<I>

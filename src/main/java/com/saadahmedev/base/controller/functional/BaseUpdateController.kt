@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 
 @FunctionalInterface
-interface BaseUpdateController<ID, DTO> {
+interface BaseUpdateController<I, D> {
 
     @Nonnull
     @PutMapping("{id}")
-    fun update(@PathVariable("id") id: ID, @Nullable @RequestBody body: DTO): ResponseEntity<*>
+    fun update(@PathVariable("id") id: I, @Nullable @RequestBody body: D): ResponseEntity<*>
 }

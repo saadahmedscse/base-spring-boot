@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 
 @FunctionalInterface
-interface BaseCreateController<DTO> {
+interface BaseCreateController<D> {
 
     @Nonnull
     @PostMapping("create")
-    fun create(@Nullable @RequestBody body: DTO): ResponseEntity<*>
+    fun create(@Nullable @RequestBody body: D): ResponseEntity<*>
 }
