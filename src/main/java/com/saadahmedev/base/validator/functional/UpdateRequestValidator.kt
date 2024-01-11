@@ -1,6 +1,6 @@
 package com.saadahmedev.base.validator.functional
 
-import com.saadahmedev.base.exception.ApiException
+import com.saadahmedev.base.exception.exception.ApiException
 import jakarta.annotation.Nullable
 import kotlin.jvm.Throws
 

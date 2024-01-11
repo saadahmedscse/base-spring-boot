@@ -1,8 +1,8 @@
-package com.saadahmedev.base.exception
+package com.saadahmedev.base.exception.exception
 
 import java.lang.Exception
 
-class ApiException : RuntimeException {
+class UnauthorizedException : RuntimeException {
 
     constructor() : super()
 
