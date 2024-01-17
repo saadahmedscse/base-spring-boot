@@ -17,7 +17,7 @@
 package com.saadahmedev.base.security.filter
 
 import com.saadahmedev.base.exception.exception.UnauthorizedException
-import com.saadahmedev.base.security.service.BaseJwtService
+import com.saadahmedev.base.security.service.BaseJwtService_
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -31,7 +31,7 @@ import java.lang.Exception
 
 abstract class BaseAuthenticationFilter<I : Serializable>(
     private val userDetailsService: UserDetailsService,
-    private val baseJwtService: BaseJwtService<I>
+    private val baseJwtService: BaseJwtService_<I>
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
