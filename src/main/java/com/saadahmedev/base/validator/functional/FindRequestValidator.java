@@ -14,15 +14,24 @@
  * limitations under the License.
  */
 
-package com.saadahmedev.base.service.functional
+package com.saadahmedev.base.validator.functional;
 
-import jakarta.annotation.Nonnull
-import jakarta.annotation.Nullable
-import org.springframework.http.ResponseEntity
+import com.saadahmedev.base.exception.exception.ApiException;
 
+/**
+ * Functional interface for validating find requests.
+ *
+ * @param <I> The type representing the identifier for finding an entity.
+ */
 @FunctionalInterface
-interface BaseCreateService<D> {
+public interface FindRequestValidator<I> {
 
-    @Nonnull
-    fun create(@Nullable body: D): ResponseEntity<*>
+    /**
+     * Validates the find request based on the provided identifier.
+     *
+     * @param id The identifier representing the data for finding an entity.
+     * @throws ApiException If the validation fails and an exception needs to be thrown.
+     */
+    void validateFindRequest(I id) throws ApiException;
 }
+
