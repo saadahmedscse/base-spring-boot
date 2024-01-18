@@ -29,7 +29,7 @@ import org.springframework.web.filter.OncePerRequestFilter
 import java.io.Serializable
 import java.lang.Exception
 
-abstract class BaseAuthenticationFilter<I : Serializable>(
+abstract class BaseAuthenticationFilter_<I : Serializable>(
     private val userDetailsService: UserDetailsService,
     private val baseJwtService: BaseJwtService_<I>
 ) : OncePerRequestFilter() {
