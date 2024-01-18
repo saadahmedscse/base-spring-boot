@@ -16,9 +16,8 @@
 
 package com.saadahmedev.base.service;
 
-import com.saadahmedev.base.exception.exception.ApiException;
+import com.saadahmedev.base.exception.thrower.ExceptionThrower;
 import com.saadahmedev.base.service.functional.*;
-import jakarta.annotation.Nonnull;
 
 /**
  * Abstract base class providing common functionality for service operations.
@@ -26,16 +25,5 @@ import jakarta.annotation.Nonnull;
  * @param <I> The type representing the identifier for entities.
  * @param <D> The type representing the request body for entities.
  */
-public abstract class BaseService<I, D> implements CreateService<D>, UpdateService<I, D>, FindService<I>, FindAllService, DeleteService<I> {
-
-    /**
-     * Creates and returns an ApiException based on the provided exception.
-     *
-     * @param e The exception used to construct the ApiException.
-     * @return ApiException created from the provided exception.
-     */
-    @Nonnull
-    protected ApiException exception(Exception e) {
-        return new ApiException(e);
-    }
+public abstract class BaseService<I, D> extends ExceptionThrower implements CreateService<D>, UpdateService<I, D>, FindService<I>, FindAllService, DeleteService<I> {
 }
