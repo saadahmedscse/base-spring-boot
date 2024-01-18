@@ -14,17 +14,16 @@
  * limitations under the License.
  */
 
-package com.saadahmedev.base.controller.functional
+package com.saadahmedev.base.controller;
 
-import jakarta.annotation.Nonnull
-import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
+import com.saadahmedev.base.controller.functional.*;
+import com.saadahmedev.base.exception.thrower.ExceptionThrower;
 
-@FunctionalInterface
-interface BaseFindController<I> {
-
-    @Nonnull
-    @GetMapping("{id}")
-    fun findById(@PathVariable("id") id: I): ResponseEntity<*>
+/**
+ * Abstract base class providing common functionality for controller operations.
+ *
+ * @param <I> The type representing the identifier for entities.
+ * @param <D> The type representing the request body for DTOs.
+ */
+public abstract class BaseController<I, D> extends ExceptionThrower implements CreateController<D>, UpdateController<I, D>, FindController<I>, FindAllController, DeleteController<I> {
 }
