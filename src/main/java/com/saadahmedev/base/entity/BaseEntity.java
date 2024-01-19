@@ -17,10 +17,8 @@
 package com.saadahmedev.base.entity;
 
 import com.saadahmedev.base.util.DateUtil;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
 /**
@@ -37,7 +35,7 @@ import java.io.Serializable;
  *
  * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
-@Entity
+@MappedSuperclass
 public abstract class BaseEntity<I extends Serializable> {
 
     @Id

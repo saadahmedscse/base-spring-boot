@@ -16,7 +16,7 @@
 
 package com.saadahmedev.base.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.MappedSuperclass;
 
 import java.io.Serializable;
 
@@ -33,7 +33,7 @@ import java.io.Serializable;
  *
  * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
-@Entity
+@MappedSuperclass
 public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEntity<I> {
 
     private Boolean isDeleted;
