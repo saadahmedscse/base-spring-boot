@@ -48,9 +48,9 @@ public class DateUtil {
      * @param date The date for which to obtain the instant.
      * @return A string representation of the instant of the specified date.
      */
-    @Nonnull
-    public static String getInstant(@Nonnull Date date) {
-        return date.toInstant().toString();
+    @Nullable
+    public static String getInstant(@Nullable Date date) {
+        return date != null ? date.toInstant().toString() : null;
     }
 
     /**
@@ -59,9 +59,9 @@ public class DateUtil {
      * @param time The time in milliseconds since the epoch.
      * @return A string representation of the instant of the specified time.
      */
-    @Nonnull
-    public static String getInstant(long time) {
-        return new Date(time).toInstant().toString();
+    @Nullable
+    public static String getInstant(@Nullable Long time) {
+        return time != null ? new Date(time).toInstant().toString() : null;
     }
 }
 

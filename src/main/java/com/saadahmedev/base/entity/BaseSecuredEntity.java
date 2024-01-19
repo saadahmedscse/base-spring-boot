@@ -16,6 +16,8 @@
 
 package com.saadahmedev.base.entity;
 
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.MappedSuperclass;
 
 import java.io.Serializable;
@@ -60,7 +62,7 @@ public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEnti
      * @param isExpired   The flag indicating whether the entity is expired.
      * @param isLocked    The flag indicating whether the entity is locked.
      */
-    public BaseSecuredEntity(Long createdTime, Long updatedTime, I createdById, I updatedById, Boolean isDeleted, Boolean isActive, Boolean isExpired, Boolean isLocked) {
+    public BaseSecuredEntity(@Nonnull Long createdTime, @Nullable Long updatedTime, @Nonnull I createdById, @Nullable I updatedById, @Nonnull Boolean isDeleted, @Nonnull Boolean isActive, @Nonnull Boolean isExpired, @Nonnull Boolean isLocked) {
         super(createdTime, updatedTime, createdById, updatedById);
         this.isDeleted = isDeleted;
         this.isActive = isActive;
@@ -82,7 +84,7 @@ public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEnti
      *
      * @param deleted The new deletion status to set for the BaseSecuredEntity.
      */
-    public void setDeleted(Boolean deleted) {
+    public void setDeleted(@Nonnull Boolean deleted) {
         isDeleted = deleted;
     }
 
@@ -100,7 +102,7 @@ public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEnti
      *
      * @param active The new activation status to set for the BaseSecuredEntity.
      */
-    public void setActive(Boolean active) {
+    public void setActive(@Nonnull Boolean active) {
         isActive = active;
     }
 
@@ -118,7 +120,7 @@ public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEnti
      *
      * @param expired The new expiration status to set for the BaseSecuredEntity.
      */
-    public void setExpired(Boolean expired) {
+    public void setExpired(@Nonnull Boolean expired) {
         isExpired = expired;
     }
 
@@ -136,7 +138,7 @@ public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEnti
      *
      * @param locked The new lock status to set for the BaseSecuredEntity.
      */
-    public void setLocked(Boolean locked) {
+    public void setLocked(@Nonnull Boolean locked) {
         isLocked = locked;
     }
 }

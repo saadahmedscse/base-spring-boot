@@ -17,6 +17,8 @@
 package com.saadahmedev.base.entity;
 
 import com.saadahmedev.base.util.DateUtil;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -42,10 +44,15 @@ public abstract class BaseEntity<I extends Serializable> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected I id;
 
+    @Column(nullable = false)
     private Long createdTime;
+    @Column(nullable = false)
     private Long updatedTime;
+    @Column(nullable = false, length = 24)
     private String createdDate;
+    @Column(nullable = false, length = 24)
     private String updatedDate;
+    @Column(nullable = false)
     private I createdById;
     private I updatedById;
 
@@ -63,7 +70,7 @@ public abstract class BaseEntity<I extends Serializable> {
      * @param createdById The identifier of the user who created the entity.
      * @param updatedById The identifier of the user who last updated the entity.
      */
-    public BaseEntity(Long createdTime, Long updatedTime, I createdById, I updatedById) {
+    public BaseEntity(@Nonnull Long createdTime, @Nullable Long updatedTime, @Nonnull I createdById, @Nullable I updatedById) {
         this.createdTime = createdTime;
         this.updatedTime = updatedTime;
         this.createdDate = DateUtil.getInstant(createdTime);
@@ -104,7 +111,7 @@ public abstract class BaseEntity<I extends Serializable> {
      *
      * @param createdTime The new creation timestamp to set for the BaseEntity.
      */
-    public void setCreatedTime(Long createdTime) {
+    public void setCreatedTime(@Nonnull Long createdTime) {
         this.createdTime = createdTime;
     }
 
@@ -122,7 +129,7 @@ public abstract class BaseEntity<I extends Serializable> {
      *
      * @param updatedTime The new last update timestamp to set for the BaseEntity.
      */
-    public void setUpdatedTime(Long updatedTime) {
+    public void setUpdatedTime(@Nonnull Long updatedTime) {
         this.updatedTime = updatedTime;
     }
 
@@ -140,7 +147,7 @@ public abstract class BaseEntity<I extends Serializable> {
      *
      * @param createdDate The new creation date to set for the BaseEntity.
      */
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(@Nonnull String createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -158,7 +165,7 @@ public abstract class BaseEntity<I extends Serializable> {
      *
      * @param updatedDate The new last update date to set for the BaseEntity.
      */
-    public void setUpdatedDate(String updatedDate) {
+    public void setUpdatedDate(@Nonnull String updatedDate) {
         this.updatedDate = updatedDate;
     }
 
@@ -176,7 +183,7 @@ public abstract class BaseEntity<I extends Serializable> {
      *
      * @param createdById The new identifier of the user who created the BaseEntity.
      */
-    public void setCreatedById(I createdById) {
+    public void setCreatedById(@Nonnull I createdById) {
         this.createdById = createdById;
     }
 
@@ -194,7 +201,7 @@ public abstract class BaseEntity<I extends Serializable> {
      *
      * @param updatedById The new identifier of the user who last updated the BaseEntity.
      */
-    public void setUpdatedById(I updatedById) {
+    public void setUpdatedById(@Nonnull I updatedById) {
         this.updatedById = updatedById;
     }
 }
