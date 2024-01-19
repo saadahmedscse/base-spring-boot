@@ -23,6 +23,8 @@ import org.springframework.http.ResponseEntity;
 
 /**
  * Interface for finding all entities within a service.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public interface FindAllService {
 

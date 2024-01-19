@@ -24,6 +24,8 @@ import org.springframework.http.ResponseEntity;
  * Functional interface for creating entities within a service.
  *
  * @param <D> The type representing the request body for creating an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 @FunctionalInterface
 public interface CreateService<D> {

@@ -24,6 +24,8 @@ import com.saadahmedev.base.service.functional.*;
  *
  * @param <I> The type representing the identifier for entities.
  * @param <D> The type representing the request body for entities.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public abstract class BaseService<I, D> extends ExceptionThrower implements CreateService<D>, UpdateService<I, D>, FindService<I>, FindAllService, DeleteService<I> {
 }

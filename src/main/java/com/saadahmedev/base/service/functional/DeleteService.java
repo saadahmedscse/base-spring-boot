@@ -24,6 +24,8 @@ import org.springframework.http.ResponseEntity;
  * Functional interface for deleting entities by their identifier within a service.
  *
  * @param <I> The type representing the identifier for deleting an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 @FunctionalInterface
 public interface DeleteService<I> {

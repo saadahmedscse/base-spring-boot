@@ -23,6 +23,8 @@ import org.jetbrains.annotations.Nullable;
  * Functional interface for validating create requests.
  *
  * @param <D> The type representing the request body for creating an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 @FunctionalInterface
 public interface CreateRequestValidator<D> {

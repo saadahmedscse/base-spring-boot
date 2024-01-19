@@ -23,6 +23,8 @@ import org.springframework.http.ResponseEntity;
  * Interface for finding entities by their identifier within a service.
  *
  * @param <I> The type representing the identifier for finding an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public interface FindService<I> {
 

@@ -26,6 +26,8 @@ import org.springframework.http.ResponseEntity;
  *
  * @param <I> The type representing the identifier for updating an entity.
  * @param <D> The type representing the request body for updating an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 @FunctionalInterface
 public interface UpdateService<I, D> {

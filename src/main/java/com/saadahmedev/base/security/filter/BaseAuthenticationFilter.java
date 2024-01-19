@@ -39,6 +39,8 @@ import java.io.Serializable;
  * once per request.
  *
  * @param <I> The type of the identifier stored in the JWT claims.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public abstract class BaseAuthenticationFilter<I extends Serializable> extends OncePerRequestFilter {
 

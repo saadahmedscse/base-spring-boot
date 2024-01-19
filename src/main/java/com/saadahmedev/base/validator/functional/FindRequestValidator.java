@@ -22,6 +22,8 @@ import com.saadahmedev.base.exception.exception.ApiException;
  * Functional interface for validating find requests.
  *
  * @param <I> The type representing the identifier for finding an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 @FunctionalInterface
 public interface FindRequestValidator<I> {

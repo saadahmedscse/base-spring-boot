@@ -45,7 +45,7 @@ public interface FindAllController {
      * @return A ResponseEntity representing the result of the find all operation with pagination.
      */
     @Nonnull
-    @GetMapping("page")
+    @GetMapping("paging")
     ResponseEntity<?> findAll(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "size", defaultValue = "10") int size);
 }
 

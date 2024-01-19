@@ -35,6 +35,8 @@ import java.util.function.Function;
  * and generating access tokens.
  *
  * @param <I> The type of the identifier stored in the JWT claims.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public abstract class BaseJwtService<I extends Serializable> {
 

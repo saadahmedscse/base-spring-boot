@@ -30,6 +30,8 @@ import org.jetbrains.annotations.NotNull;
  *
  * @param <I> The type representing the identifier for entities.
  * @param <D> The type representing the request body for entities.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public abstract class RequestValidator<I, D> extends ExceptionThrower implements CreateRequestValidator<D>, FindRequestValidator<I>, UpdateRequestValidator<I, D> {
 }
