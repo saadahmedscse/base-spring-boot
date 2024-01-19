@@ -17,20 +17,20 @@
 package com.saadahmedev.base.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Base Spring Boot
- * <p>
- * Login Response simplifies the return body of login request of a RESTful API
- * <p>
- * Date: 01-12-2023
+ * LoginResponse Class
  *
- * @author Saad Ahmed
- * @since 2018
- * @see <a href="https://github.com/saadahmedscse/Android-Popup-Dialog">Android Popup Dialog</a>
- * @see <a href="https://github.com/saadahmedscse/TinyDB">Tiny DB Android</a>
- * @see <a href="https://github.com/saadahmedscse/ShortIntent">Android Short Intent</a>
+ * <p>
+ * Represents the response body structure for a login request in a RESTful API.
+ * Extends the base ApiResponse class to include an access token generated upon
+ * successful login.
+ * </p>
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 
 public class LoginResponse extends ApiResponse {
@@ -40,11 +40,12 @@ public class LoginResponse extends ApiResponse {
     private String accessToken;
 
     /**
-     * Create instance of the LoginResponse dto class
-     * @param statusCode the status code of the response
-     * @param status the status which can be either true or false
-     * @param message the message of the login response object
-     * @param accessToken the token which will be generated on successful login
+     * Constructs an instance of the LoginResponse class.
+     *
+     * @param statusCode   The HTTP status code of the response.
+     * @param status       The success/failure status of the response.
+     * @param message      The message included in the response.
+     * @param accessToken  The access token generated upon successful login.
      */
 
     public LoginResponse(@NotNull Integer statusCode, @NotNull Boolean status, @NotNull String message, @NotNull String accessToken) {
@@ -53,8 +54,9 @@ public class LoginResponse extends ApiResponse {
     }
 
     /**
-     * Return the access token which can be JWT or anything after successful login request
-     * @return the access token which will be generated on successful login
+     * Gets the access token generated upon successful login.
+     *
+     * @return The access token.
      */
 
     @NotNull
@@ -63,18 +65,14 @@ public class LoginResponse extends ApiResponse {
     }
 
     /**
-     * Return the string with values of LoginResponse dto
-     * @return the string with values of LoginResponse dto
+     * Returns a JSON representation of the LoginResponse instance.
+     *
+     * @return A JSON string representing the values of the LoginResponse instance.
      */
 
+    @SneakyThrows
     @Override
     public String toString() {
-        return "LoginResponse{" +
-                "statusCode=" + super.getStatusCode() +
-                ", status=" + super.getStatus() +
-                ", message='" + super.getMessage() + '\'' +
-                ", accessToken='" + accessToken + '\'' +
-                ", timeStamp='" + super.getTimeStamp() + '\'' +
-                '}';
+        return new ObjectMapper().writeValueAsString(this);
     }
 }

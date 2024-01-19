@@ -17,22 +17,22 @@
 package com.saadahmedev.base.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 
 /**
- * Base Spring Boot
- * <p>
- * Api Response simplifies the return body of http request of a RESTful API
- * <p>
- * Date: 01-12-2023
+ * ApiResponse Class
  *
- * @author Saad Ahmed
- * @see <a href="https://github.com/saadahmedscse/Android-Popup-Dialog">Android Popup Dialog</a>
- * @see <a href="https://github.com/saadahmedscse/TinyDB">Tiny DB Android</a>
- * @see <a href="https://github.com/saadahmedscse/ShortIntent">Android Short Intent</a>
- * @since 2018
+ * <p>
+ * Represents the response body structure for HTTP requests in a RESTful API.
+ * The class provides a standardized format including status code, success/failure status,
+ * message, and a timestamp.
+ * </p>
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 
 public class ApiResponse {
@@ -49,11 +49,11 @@ public class ApiResponse {
     private final String timeStamp;
 
     /**
-     * Create instance of the LoginResponse dto class
+     * Constructs an instance of the ApiResponse class.
      *
-     * @param statusCode the status code of the response
-     * @param status     the status which can be either true or false
-     * @param message    the message of the api response object
+     * @param statusCode The HTTP status code of the response.
+     * @param status     The success/failure status of the response.
+     * @param message    The message included in the response.
      */
 
     public ApiResponse(@NotNull Integer statusCode, @NotNull Boolean status, @NotNull String message) {
@@ -64,9 +64,9 @@ public class ApiResponse {
     }
 
     /**
-     * Return the status code in the response body
+     * Gets the HTTP status code from the response.
      *
-     * @return the https status code in the response body
+     * @return The HTTP status code.
      */
 
     @NotNull
@@ -75,9 +75,9 @@ public class ApiResponse {
     }
 
     /**
-     * Return the success or failed status in the response body
+     * Gets the success/failure status from the response.
      *
-     * @return true or false as status in the response body
+     * @return The success/failure status.
      */
 
     @NotNull
@@ -86,9 +86,9 @@ public class ApiResponse {
     }
 
     /**
-     * Return the response message in the response body
+     * Gets the response message from the response.
      *
-     * @return the response message in the response body
+     * @return The response message.
      */
 
     @NotNull
@@ -97,9 +97,9 @@ public class ApiResponse {
     }
 
     /**
-     * Return the time stamp in the response body
+     * Gets the timestamp included in the response.
      *
-     * @return generates the current date time stamp and return as time stamp in the response body
+     * @return The timestamp.
      */
 
     @NotNull
@@ -108,18 +108,19 @@ public class ApiResponse {
     }
 
     /**
-     * Return the string with values of ApiResponse dto
+     * Returns a JSON representation of the ApiResponse instance.
      *
-     * @return the string with values of ApiResponse dto
+     * <p>
+     * This method utilizes the Jackson ObjectMapper to serialize the ApiResponse instance
+     * into a JSON string, providing a string representation of the object's values.
+     * </p>
+     *
+     * @return A JSON string with the values of the ApiResponse instance.
      */
 
+    @SneakyThrows
     @Override
     public String toString() {
-        return "ApiResponse{" +
-                "statusCode=" + statusCode +
-                ", status=" + status +
-                ", message='" + message + '\'' +
-                ", timeStamp='" + timeStamp + '\'' +
-                '}';
+        return new ObjectMapper().writeValueAsString(this);
     }
 }

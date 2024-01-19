@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Interface for finding all items within an Entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public interface FindAllController {
 

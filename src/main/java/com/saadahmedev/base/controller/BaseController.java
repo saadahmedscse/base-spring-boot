@@ -24,6 +24,8 @@ import com.saadahmedev.base.exception.thrower.ExceptionThrower;
  *
  * @param <I> The type representing the identifier for entities.
  * @param <D> The type representing the request body for DTOs.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public abstract class BaseController<I, D> extends ExceptionThrower implements CreateController<D>, UpdateController<I, D>, FindController<I>, FindAllController, DeleteController<I> {
 }

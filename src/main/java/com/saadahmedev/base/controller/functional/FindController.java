@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.PathVariable;
  * Interface for finding entities by their identifier from the service layer.
  *
  * @param <I> The type representing the identifier for finding an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 public interface FindController<I> {
 

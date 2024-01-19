@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestBody;
  * Functional interface for creating entities within a controller.
  *
  * @param <D> The type representing the request body for creating an entity.
+ *
+ * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 @FunctionalInterface
 public interface CreateController<D> {
