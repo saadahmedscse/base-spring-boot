@@ -16,7 +16,7 @@
 
 package com.saadahmedev.base.exception.exception;
 
-import org.jetbrains.annotations.NotNull;
+import jakarta.annotation.Nonnull;
 
 import java.lang.Exception;
 
@@ -73,7 +73,7 @@ public class UnauthorizedException extends RuntimeException {
      *
      * @param exception The original exception to derive information from.
      */
-    public UnauthorizedException(@NotNull Exception exception) {
+    public UnauthorizedException(@Nonnull Exception exception) {
         super(exception.getMessage() != null ? exception.getMessage() : "Unexpected error occurred");
     }
 }

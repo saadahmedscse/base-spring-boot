@@ -17,7 +17,7 @@
 package com.saadahmedev.base.validator.functional;
 
 import com.saadahmedev.base.exception.exception.ApiException;
-import org.jetbrains.annotations.Nullable;
+import jakarta.annotation.Nullable;
 
 /**
  * Functional interface for validating update requests.

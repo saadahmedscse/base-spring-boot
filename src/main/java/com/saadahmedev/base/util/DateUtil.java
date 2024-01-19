@@ -16,7 +16,8 @@
 
 package com.saadahmedev.base.util;
 
-import org.jetbrains.annotations.NotNull;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 import java.util.Date;
 
@@ -36,7 +37,7 @@ public class DateUtil {
      *
      * @return A string representation of the current instant.
      */
-    @NotNull
+    @Nonnull
     public static String getInstant() {
         return new Date().toInstant().toString();
     }
@@ -47,8 +48,8 @@ public class DateUtil {
      * @param date The date for which to obtain the instant.
      * @return A string representation of the instant of the specified date.
      */
-    @NotNull
-    public static String getInstant(@NotNull Date date) {
+    @Nonnull
+    public static String getInstant(@Nonnull Date date) {
         return date.toInstant().toString();
     }
 
@@ -58,7 +59,7 @@ public class DateUtil {
      * @param time The time in milliseconds since the epoch.
      * @return A string representation of the instant of the specified time.
      */
-    @NotNull
+    @Nonnull
     public static String getInstant(long time) {
         return new Date(time).toInstant().toString();
     }

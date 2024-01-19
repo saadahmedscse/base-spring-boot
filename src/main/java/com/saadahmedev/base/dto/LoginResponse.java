@@ -19,7 +19,7 @@ package com.saadahmedev.base.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-import org.jetbrains.annotations.NotNull;
+import jakarta.annotation.Nonnull;
 
 /**
  * LoginResponse Class
@@ -35,7 +35,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class LoginResponse extends ApiResponse {
 
-    @NotNull
     @JsonProperty("access_token")
     private String accessToken;
 
@@ -48,7 +47,7 @@ public class LoginResponse extends ApiResponse {
      * @param accessToken  The access token generated upon successful login.
      */
 
-    public LoginResponse(@NotNull Integer statusCode, @NotNull Boolean status, @NotNull String message, @NotNull String accessToken) {
+    public LoginResponse(@Nonnull Integer statusCode, @Nonnull Boolean status, @Nonnull String message, @Nonnull String accessToken) {
         super(statusCode, status, message);
         this.accessToken = accessToken;
     }
@@ -59,7 +58,7 @@ public class LoginResponse extends ApiResponse {
      * @return The access token.
      */
 
-    @NotNull
+    @Nonnull
     public String getAccessToken() {
         return accessToken;
     }

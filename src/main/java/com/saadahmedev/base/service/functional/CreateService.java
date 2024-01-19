@@ -16,9 +16,9 @@
 
 package com.saadahmedev.base.service.functional;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.springframework.http.ResponseEntity;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Functional interface for creating entities within a service.
@@ -37,6 +37,6 @@ public interface CreateService<D> {
      * @return A ResponseEntity representing the result of the create operation.
      * @throws com.saadahmedev.base.exception.exception.BadRequestException If the provided request body is invalid or incomplete or any required field is empty or null.
      */
-    @NotNull
+    @Nonnull
     ResponseEntity<?> create(@Nullable D body);
 }

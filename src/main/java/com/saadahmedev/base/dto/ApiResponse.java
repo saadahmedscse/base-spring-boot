@@ -19,7 +19,7 @@ package com.saadahmedev.base.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-import org.jetbrains.annotations.NotNull;
+import jakarta.annotation.Nonnull;
 
 import java.util.Date;
 
@@ -37,14 +37,10 @@ import java.util.Date;
 
 public class ApiResponse {
 
-    @NotNull
     @JsonProperty("status_code")
     private final Integer statusCode;
-    @NotNull
     private final Boolean status;
-    @NotNull
     private final String message;
-    @NotNull
     @JsonProperty("time_stamp")
     private final String timeStamp;
 
@@ -56,7 +52,7 @@ public class ApiResponse {
      * @param message    The message included in the response.
      */
 
-    public ApiResponse(@NotNull Integer statusCode, @NotNull Boolean status, @NotNull String message) {
+    public ApiResponse(@Nonnull Integer statusCode, @Nonnull Boolean status, @Nonnull String message) {
         this.statusCode = statusCode;
         this.status = status;
         this.message = message;
@@ -69,7 +65,7 @@ public class ApiResponse {
      * @return The HTTP status code.
      */
 
-    @NotNull
+    @Nonnull
     public Integer getStatusCode() {
         return statusCode;
     }
@@ -80,7 +76,7 @@ public class ApiResponse {
      * @return The success/failure status.
      */
 
-    @NotNull
+    @Nonnull
     public Boolean getStatus() {
         return status;
     }
@@ -91,7 +87,7 @@ public class ApiResponse {
      * @return The response message.
      */
 
-    @NotNull
+    @Nonnull
     public String getMessage() {
         return message;
     }
@@ -102,7 +98,7 @@ public class ApiResponse {
      * @return The timestamp.
      */
 
-    @NotNull
+    @Nonnull
     public String getTimeStamp() {
         return timeStamp;
     }

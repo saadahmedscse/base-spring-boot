@@ -20,9 +20,9 @@ import com.saadahmedev.base.exception.exception.ApiException;
 import com.saadahmedev.base.exception.exception.BadRequestException;
 import com.saadahmedev.base.exception.exception.UnauthorizedException;
 import com.saadahmedev.base.response.ServerResponse;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import jakarta.annotation.Nonnull;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -58,7 +58,7 @@ public class GlobalExceptionHandler {
      * @return A {@link ResponseEntity} with bad request response.
      */
     @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<?> handleBadRequestException(@NotNull BadRequestException exception) {
+    public ResponseEntity<?> handleBadRequestException(@Nonnull BadRequestException exception) {
         return ServerResponse.badRequest(exception.getMessage());
     }
 
@@ -69,7 +69,7 @@ public class GlobalExceptionHandler {
      * @return A {@link ResponseEntity} with unauthorized response.
      */
     @ExceptionHandler(UnauthorizedException.class)
-    public ResponseEntity<?> handleUnauthorizedException(@NotNull UnauthorizedException exception) {
+    public ResponseEntity<?> handleUnauthorizedException(@Nonnull UnauthorizedException exception) {
         return ServerResponse.unauthorized(exception.getMessage());
     }
 
@@ -80,7 +80,7 @@ public class GlobalExceptionHandler {
      * @return A {@link ResponseEntity} with bad request response.
      */
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<?> handleMessageNotReadableException(@NotNull HttpMessageNotReadableException exception) {
+    public ResponseEntity<?> handleMessageNotReadableException(@Nonnull HttpMessageNotReadableException exception) {
         return ServerResponse.badRequest(exception.getMessage());
     }
 }

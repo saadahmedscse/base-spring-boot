@@ -16,13 +16,10 @@
 
 package com.saadahmedev.base.validator;
 
-import com.saadahmedev.base.exception.exception.ApiException;
-import com.saadahmedev.base.exception.exception.BadRequestException;
 import com.saadahmedev.base.exception.thrower.ExceptionThrower;
 import com.saadahmedev.base.validator.functional.CreateRequestValidator;
 import com.saadahmedev.base.validator.functional.FindRequestValidator;
 import com.saadahmedev.base.validator.functional.UpdateRequestValidator;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Abstract base class providing common functionality for request validation.
