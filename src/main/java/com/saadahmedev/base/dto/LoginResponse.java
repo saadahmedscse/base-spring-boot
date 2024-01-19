@@ -17,8 +17,9 @@
 package com.saadahmedev.base.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
+import com.saadahmedev.base.exception.exception.ApiException;
 import jakarta.annotation.Nonnull;
 
 /**
@@ -69,9 +70,12 @@ public class LoginResponse extends ApiResponse {
      * @return A JSON string representing the values of the LoginResponse instance.
      */
 
-    @SneakyThrows
     @Override
     public String toString() {
-        return new ObjectMapper().writeValueAsString(this);
+        try {
+            return new ObjectMapper().writeValueAsString(this);
+        } catch (JsonProcessingException exception) {
+            throw new ApiException(exception);
+        }
     }
 }

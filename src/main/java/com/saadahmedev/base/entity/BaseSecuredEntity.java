@@ -17,9 +17,6 @@
 package com.saadahmedev.base.entity;
 
 import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -37,8 +34,6 @@ import java.io.Serializable;
  * @author <a href="https://github.com/saadahmedscse">Saad Ahmed</a>
  */
 @Entity
-@Setter
-@Getter
 public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEntity<I> {
 
     private Boolean isDeleted;
@@ -71,5 +66,77 @@ public abstract class BaseSecuredEntity<I extends Serializable> extends BaseEnti
         this.isActive = isActive;
         this.isExpired = isExpired;
         this.isLocked = isLocked;
+    }
+
+    /**
+     * Get the deletion status of the BaseSecuredEntity.
+     *
+     * @return True if the entity is marked as deleted, false otherwise.
+     */
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    /**
+     * Set the deletion status of the BaseSecuredEntity.
+     *
+     * @param deleted The new deletion status to set for the BaseSecuredEntity.
+     */
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    /**
+     * Get the activation status of the BaseSecuredEntity.
+     *
+     * @return True if the entity is active, false otherwise.
+     */
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    /**
+     * Set the activation status of the BaseSecuredEntity.
+     *
+     * @param active The new activation status to set for the BaseSecuredEntity.
+     */
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    /**
+     * Get the expiration status of the BaseSecuredEntity.
+     *
+     * @return True if the entity is expired, false otherwise.
+     */
+    public Boolean getExpired() {
+        return isExpired;
+    }
+
+    /**
+     * Set the expiration status of the BaseSecuredEntity.
+     *
+     * @param expired The new expiration status to set for the BaseSecuredEntity.
+     */
+    public void setExpired(Boolean expired) {
+        isExpired = expired;
+    }
+
+    /**
+     * Get the lock status of the BaseSecuredEntity.
+     *
+     * @return True if the entity is locked, false otherwise.
+     */
+    public Boolean getLocked() {
+        return isLocked;
+    }
+
+    /**
+     * Set the lock status of the BaseSecuredEntity.
+     *
+     * @param locked The new lock status to set for the BaseSecuredEntity.
+     */
+    public void setLocked(Boolean locked) {
+        isLocked = locked;
     }
 }
