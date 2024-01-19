@@ -40,7 +40,7 @@ public abstract class BaseEntity<I extends Serializable> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private I id;
+    protected I id;
 
     private Long createdTime;
     private Long updatedTime;
