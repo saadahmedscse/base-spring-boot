@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.saadahmedev.base'
-version = '0.0.5'
+version = '0.0.7'
 def artifactVersion = version
 
 java {
@@ -50,7 +50,6 @@ publishing {
             artifactId = 'base-boot'
             version = artifactVersion
 
-            artifact(javadocJar)
             artifact(sourcesJar)
             artifact(jar)
 
