@@ -1,12 +1,10 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
-    id 'io.spring.dependency-management' version '1.1.4'
     id 'maven-publish'
 }
 
 group = 'com.saadahmedev.base'
-version = '0.0.1'
+version = '0.0.4'
 def artifactVersion = version
 
 java {
@@ -29,8 +27,6 @@ repositories {
 def springBootVersion = '3.2.1'
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-
     // Spring Web
     implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
 
@@ -40,19 +36,11 @@ dependencies {
     // Spring Data JPA
     implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
 
-    // Lombok
-    compileOnly "org.projectlombok:lombok:1.18.28"
-    annotationProcessor "org.projectlombok:lombok:1.18.28"
-
     // JWT
     def jwtVersion = '0.11.5'
     implementation "io.jsonwebtoken:jjwt-api:$jwtVersion"
     implementation "io.jsonwebtoken:jjwt-impl:$jwtVersion"
     implementation "io.jsonwebtoken:jjwt-jackson:$jwtVersion"
-}
-
-kotlin {
-    jvmToolchain(17)
 }
 
 publishing {
@@ -62,8 +50,9 @@ publishing {
             artifactId = 'base-boot'
             version = artifactVersion
 
-            artifact(kotlinSourcesJar)
-            artifact("build/libs/base-boot-${artifactVersion}.jar")
+            artifact(javadocJar)
+            artifact(sourcesJar)
+            artifact(jar)
 
             pom {
                 name = 'Base Spring Boot'
